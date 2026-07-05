@@ -1,5 +1,5 @@
 /* =========================================================
-   Jenora Tech LANDING PAGE — STYLES
+   TECHNOVA LANDING PAGE — STYLES
 ========================================================= */
 
 :root{
@@ -288,34 +288,66 @@ section{ padding:100px 0; }
 .mission-text{ font-size:.85rem; color:var(--medium-gray); }
 
 /* ==================== PRODUCTS ==================== */
+.product-category{ margin-bottom:64px; }
+.product-category:last-child{ margin-bottom:0; }
+.category-divider{ display:flex; align-items:center; gap:16px; margin-bottom:32px; }
+.category-line{ height:1px; flex:1; background:rgba(0,0,0,.08); }
+.category-label{
+  font-size:.75rem; font-weight:800; text-transform:uppercase; letter-spacing:.2em;
+  color:var(--deep-blue); background:rgba(10,77,255,.06); padding:8px 20px; border-radius:50px;
+  white-space:nowrap;
+}
 .products-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:28px; }
 .product-card{
   background:white; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-sm);
   transition:all .4s cubic-bezier(.16,1,.3,1); border:1px solid rgba(0,0,0,.04); position:relative;
+  display:flex; flex-direction:column;
 }
 .product-card::before{
   content:''; position:absolute; top:0; left:0; right:0; height:4px;
   background:linear-gradient(90deg, var(--deep-blue), var(--purple), var(--cyan));
-  opacity:0; transition:opacity .3s;
+  opacity:0; transition:opacity .3s; z-index:1;
 }
 .product-card:hover::before{ opacity:1; }
 .product-card:hover{ transform:translateY(-8px); box-shadow:var(--shadow-lg); }
 .product-img{
-  height:200px; background:linear-gradient(135deg, var(--light-gray), #E8ECF4);
+  height:220px; background:var(--near-black);
   display:flex; align-items:center; justify-content:center; font-size:3rem; position:relative; overflow:hidden;
 }
 .product-img::after{
   content:''; position:absolute; inset:0;
-  background:linear-gradient(135deg, rgba(10,77,255,.05), rgba(108,78,255,.05));
+  background:linear-gradient(135deg, rgba(10,77,255,.05), rgba(108,78,255,.05)); pointer-events:none;
 }
-.product-info{ padding:28px; }
+.product-img img{ width:100%; height:100%; object-fit:contain; position:relative; z-index:0; }
+.product-img-fallback{
+  display:none; align-items:center; justify-content:center; width:100%; height:100%;
+  position:absolute; inset:0; font-size:3rem;
+}
+.product-info{ padding:28px; display:flex; flex-direction:column; flex:1; }
 .product-info h3{ font-size:1.2rem; font-weight:700; color:var(--near-black); margin-bottom:8px; }
 .product-info p{ color:var(--medium-gray); font-size:.95rem; margin-bottom:20px; line-height:1.6; }
+.product-features{
+  list-style:none; display:flex; flex-direction:column; gap:10px; margin-bottom:24px; flex:1;
+}
+.product-features li{
+  font-size:.8rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em;
+  color:var(--medium-gray); display:flex; align-items:center; gap:10px;
+}
+.product-features li::before{
+  content:''; width:6px; height:6px; border-radius:50%; background:var(--deep-blue); flex-shrink:0;
+}
 .product-link{
   display:inline-flex; align-items:center; gap:6px; color:var(--deep-blue); font-weight:600;
   font-size:.9rem; text-decoration:none; transition:gap .3s;
 }
 .product-link:hover{ gap:12px; }
+.product-cta{
+  align-self:flex-start; display:inline-flex; align-items:center; padding:12px 28px; border-radius:50px;
+  background:linear-gradient(135deg, var(--deep-blue), var(--purple)); color:white; font-weight:700;
+  font-size:.85rem; text-transform:uppercase; letter-spacing:.08em; text-decoration:none;
+  box-shadow:0 8px 24px rgba(10,77,255,.3); transition:all .3s ease;
+}
+.product-cta:hover{ transform:translateY(-2px); box-shadow:0 12px 30px rgba(10,77,255,.4); }
 
 /* ==================== SERVICES ==================== */
 .services{ background:var(--near-black); position:relative; overflow:hidden; }
